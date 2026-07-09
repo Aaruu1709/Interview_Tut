@@ -301,6 +301,25 @@ New Relic
 
 If deeper investigation is needed, engineers may capture a heap dump or connect a profiler like VisualVM (or use Java Flight Recorder/Java Mission Control) to diagnose the issue.
 
+A Heap Dump only shows objects that are still alive at the moment the snapshot is taken.
+If millions of String objects are created, why doesn't the Heap Dump show millions of Strings?
+
+Answer:
+
+Because a Heap Dump contains only the objects that are alive when the snapshot is taken. Temporary objects that have already been garbage collected do not appear.
+
+--------------------------------------------------------------------------
+
+What is the difference between Heap Monitoring and Heap Dump?
+
+You can say:
+
+Heap Monitoring shows how memory usage changes over time. Heap Dump is a snapshot of the Heap at a particular moment. It contains only the objects that are still alive in memory. Objects already reclaimed by the Garbage Collector do not appear in the Heap Dump.
+
+----------------------------------------------------------------------------------
+
+
+
 Actuator = "What's the health of my application?" 🩺
 VisualVM = "Why is my application unhealthy?" 🔬
 
