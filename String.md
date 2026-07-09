@@ -523,10 +523,22 @@ StringBuilder solves this problem because it is mutable.
 Instead of creating a new object for every modification, it updates the existing character sequence internally.
 
 That's why StringBuilder is preferred when we perform multiple String modifications, especially in loops.
+
 -------------------------------------------------------------------------
 
+Can you give me a practical example where you would use StringBuilder?
+--------------------------------------------------------------------------
+
+Suppose I'm generating a CSV file, building a JSON response manually, creating a large SQL query dynamically, or appending log messages inside a loop.
+
+In these situations, using String concatenation with + would create many temporary String objects.
+
+Using StringBuilder allows all modifications to happen on the same object, making the operation much more memory-efficient.
 
 
+----------------------------------------------------------
+
+<img width="1024" height="1536" alt="ChatGPT Image Jul 9, 2026, 11_58_15 PM" src="https://github.com/user-attachments/assets/27f23015-9cf1-4d42-8172-d4105e458754" />
 
 
  
