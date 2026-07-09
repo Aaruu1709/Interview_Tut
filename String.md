@@ -402,6 +402,55 @@ These compare values.
 
 -------------------------------------------------------------------------
 
+COMPLETE STRING INTERVIEW TREE (Part 1)
+-------------------------------------------------------------------------
+
+String
+
+│
+
+├── What is String?
+
+├── Why Immutable?
+
+├── Why Final?
+
+├── Why String Pool?
+
+├── Heap vs Pool
+
+├── Literal vs new String()
+
+├── == vs equals()
+
+├── hashCode()
+
+├── StringBuilder
+
+├── StringBuffer
+
+├── intern()
+
+├── concat()
+
+├── trim()
+
+├── substring()
+
+├── replace()
+
+├── split()
+
+├── Performance
+
+├── Project Usage
+
+├── Debugging
+
+├── Scenario Questions
+
+-------------------------------------------------------------------------
+
 
 
 
