@@ -449,6 +449,21 @@ String
 
 ├── Scenario Questions
 
+-------------------------------------------------------------------
+
+Why don't we always use String? Why do we need StringBuilder?
+
+String is immutable, which means every modification creates a new object.
+
+If we repeatedly concatenate Strings, especially inside loops, many temporary String objects are created.
+
+This increases memory usage and puts additional pressure on the Garbage Collector.
+
+StringBuilder solves this problem because it is mutable.
+
+Instead of creating a new object for every modification, it updates the existing character sequence internally.
+
+That's why StringBuilder is preferred when we perform multiple String modifications, especially in loops.
 -------------------------------------------------------------------------
 
 
