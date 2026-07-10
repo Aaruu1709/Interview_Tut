@@ -18,6 +18,9 @@ Instead of creating a new object for every modification, it updates the existing
 
 That's why StringBuilder is preferred when we perform multiple String modifications, especially in loops.
 
+-------------------------------------------------------------------------------------------------
+
+
 -------------------------------------------------------------------------------------
 Can you give me a practical example where you would use StringBuilder?
 ---------------------------------------------------------------------------------------
@@ -28,6 +31,25 @@ Suppose I'm generating a CSV file, building a JSON response manually, creating a
 In these situations, using String concatenation with + would create many temporary String objects.
 
 Using StringBuilder allows all modifications to happen on the same object, making the operation much more memory-efficient.
+
+------------------------------------------------------------------------------------------------
+
+⭐ If the interviewer asks for a code example
+StringBuilder sb = new StringBuilder();
+
+for (int i = 1; i <= 5; i++) {
+    sb.append("Employee ").append(i).append("\n");
+}
+
+System.out.println(sb.toString());
+You can explain it like this:
+
+In this example, I'm generating employee details inside a loop. If I used the + operator, Java would create a new String object in every iteration. By using StringBuilder, the same object is updated, making the code more efficient.
+
+
+One practical use case of StringBuilder is generating log messages. Suppose I need to log details of multiple users or transactions inside a loop. Instead of using the + operator repeatedly, I use StringBuilder because it appends data to the same object, making it more memory-efficient and improving performance.
+
+Another practical use case is creating a dynamic SQL query. Suppose the search filters are optional, such as employee name, department, or salary. I can use StringBuilder to append conditions dynamically. This is more efficient than repeatedly concatenating strings.
 
 -----------------------------------------------------------------
 Follow-up Question 2
@@ -67,7 +89,7 @@ I would use StringBuilder.
 
 Since loops often perform repeated concatenation, using String would create many temporary objects.
 
-StringBuilder avoids that overhead by modifying the same obje
+StringBuilder avoids that by modifying the same object
 
 -------------------------------------------------------------------------------
 
@@ -77,7 +99,7 @@ Suppose multiple threads are modifying the same String sequence.
 
 Now what?
 -------------------------------------------------------------------------------
-n that case, I would use StringBuffer because it provides synchronized methods, making modifications thread-safe.
+In that case, I would use StringBuffer because it provides synchronized methods, making modifications thread-safe.
 
 However, if thread safety isn't required, I'd prefer StringBuilder because it offers better performance.
 
@@ -124,6 +146,32 @@ This is much more efficient than creating a new String object after every modifi
 
 --------------------------------------------------------------------------------
 
+
+
+"Will multiple threads modify the same object at the same time?"
+Case 1: Use StringBuilder 
+If only one thread is modifying the string, use StringBuilder.
+
+This is what you use in 90–95% of Java applications.
+
+Examples
+Building a JSON string
+Generating a CSV file
+Creating an SQL query
+Appending log messages
+Creating a report
+
+Inside a for loop
+
+Case 2: Use StringBuffer
+
+Use StringBuffer only when the same object is shared between multiple threads.
+
+If both modify the object simultaneously, data can become inconsistent.
+
+StringBuffer prevents this by synchronizing its methods.
+
+-----------------------------------------------------------------------------------------
 Follow-up Question 7
 
 Now...
@@ -210,7 +258,7 @@ I see you've worked on Java.
 
 Can you explain what intern() does?
 -----------------------------------------------------------------------
-he intern() method returns the reference of the String from the String Pool.
+the intern() method returns the reference of the String from the String Pool.
 
 If an equivalent String already exists in the pool, intern() returns that existing pooled object.
 
